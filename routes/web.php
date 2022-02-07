@@ -21,6 +21,18 @@ Route::get('seed', 'SeederController@index')->name('seed');
 Route::post('seed', 'SeederController@seed')->name('seed.post');
 //Route::post('seed', 'SeederController@seed')->name('seed');
 
+Route::get('pagamento');
+
+Route::get('/template', function () {
+    return view('site.layouts.templateBasico');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

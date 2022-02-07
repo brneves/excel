@@ -35,7 +35,6 @@ class SeederController extends Controller
             }
 
             $num = explode("-", $numeros[0]);
-
             $faker = Factory::create('pt_BR');
             for ($i = 0; $i <= 20; $i++){
                 $dados[] = $faker->name('female');
