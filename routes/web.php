@@ -31,8 +31,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/diploma', 'DiplomaController@hash')->name('diploma.hash');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
