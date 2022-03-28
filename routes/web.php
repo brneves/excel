@@ -31,6 +31,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/diploma', 'DiplomaController@hash')->name('diploma.hash');
+Route::get('/diploma', 'DiplomaController@index')->name('diploma');
+Route::post('/diploma', 'DiplomaController@store')->name('diploma.store');
 
 Auth::routes();
