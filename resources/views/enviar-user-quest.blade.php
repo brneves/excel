@@ -29,16 +29,12 @@
         </tr>
         </thead>
         <tbody>
-        @php
-        $user = [];
-        @endphp
-
-
-        @for($i = 1; $i <= count($usuarios); $i++)
-
-        @endfor
-
         @forelse($usuarios as $usuario)
+
+            @php
+            \App\Http\Controllers\UserQuestionarioController::updateRepetido($usuario->id_users)
+            @endphp
+
             <tr>
                 <td>{{ $usuario->id_users_questionarios }}</td>
                 <td>{{ $usuario->id_users }}</td>

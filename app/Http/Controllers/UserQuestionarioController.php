@@ -13,7 +13,7 @@ class UserQuestionarioController extends Controller
     {
 
         ini_set('memory_limit', '-1');
-        ini_set('max_execution_time', 180);
+        ini_set('max_execution_time', 300);
 
         $usuarios = UserQuestionario::all();
 
@@ -22,15 +22,7 @@ class UserQuestionarioController extends Controller
         /*
         for ($i = 1; $i <= count($usuarios); $i++){
 
-            $user = UserQuestionario::where('id_users', $usuarios[$i]['id_users'])->orderBy('created_at', 'desc')->get();
-            if (count($user) > 1){
-                $i = 1;
-                foreach ($user as $item) {
-                    if ($i > 1)
-                        $item->update(['ok' => 1]);
-                    $i++;
-                }
-            }
+
         }
         */
 
@@ -46,4 +38,18 @@ class UserQuestionarioController extends Controller
 
         return redirect()->route('user-questionario');
     }
+
+    public static function updateRepetido($idUser)
+    {
+        $user = UserQuestionario::where('id_users', $idUser)->orderBy('created_at', 'desc')->get();
+        if (count($user) > 1){
+            $i = 1;
+            foreach ($user as $item) {
+                if ($i > 1)
+                    $item->update(['ok' => 1]);
+                $i++;
+            }
+        }
+    }
+
 }

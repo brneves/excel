@@ -11,6 +11,8 @@ class UserQuestionario extends Model
     protected $fillable = [
         'id_users',
         'id_questionarios',
+        'created_at',
+        'updated_at',
         'ok'
     ];
 
