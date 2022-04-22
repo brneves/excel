@@ -34,4 +34,7 @@ Route::get('/', function () {
 Route::get('/diploma', 'DiplomaController@index')->name('diploma');
 Route::post('/diploma', 'DiplomaController@store')->name('diploma.store');
 
+Route::get('/user-questionario', 'UserQuestionarioController@index')->name('user-questionario');
+Route::post('user-questionario', 'UserQuestionarioController@store')->name('user-questionario.store');
+
 Auth::routes();
