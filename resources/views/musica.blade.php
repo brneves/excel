@@ -21,8 +21,13 @@
     <br>
 
     @foreach($musicas as $musica)
+
+        @if($musica->nota_teste_aptidao < 6)
+            UPDATE inscricoes SET id_vagas_eventos_final = {{ $musica->id_vagas_eventos_final }} where id_inscricoes = {{ $musica->id_inscricoes }};<br>
+        @endif
+
         @php
-        \App\Http\Controllers\MusicaController::mudaVaga($musica->id_inscricoes)
+        //\App\Http\Controllers\MusicaController::mudaVaga($musica->id_inscricoes)
         @endphp
     @endforeach
 
