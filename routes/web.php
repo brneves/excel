@@ -34,4 +34,16 @@ Route::get('/', function () {
 Route::get('/diploma', 'DiplomaController@index')->name('diploma');
 Route::post('/diploma', 'DiplomaController@store')->name('diploma.store');
 
+Route::get('/user-questionario', 'UserQuestionarioController@index')->name('user-questionario');
+Route::post('user-questionario', 'UserQuestionarioController@store')->name('user-questionario.store');
+
+Route::get('/cfo-masc', 'CFOMascController@index')->name('cfo-masc');
+Route::post('/cfo-masc', 'CFOMascController@store')->name('cfo-masc.store');
+
+Route::get('/cfo-femi', 'CFOFemController@index')->name('cfo-femi');
+Route::post('/cfo-femi', 'CFOFemController@store')->name('cfo-femi.store');
+
+Route::get('/musica', 'MusicaController@index')->name('musica');
+Route::post('/musica', 'MusicaController@store')->name('musica.store');
+
 Auth::routes();
