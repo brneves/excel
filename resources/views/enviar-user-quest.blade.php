@@ -29,23 +29,34 @@
         </tr>
         </thead>
         <tbody>
+        @php $i = 0; @endphp
+
         @forelse($usuarios as $usuario)
 
+            @if($usuario->ok == 1)
+                UPDATE user_questionarios SET deleted_at = '2022-04-22 10:21:10' where id_users_questionarios = {{ $usuario->id_users_questionarios }};<br>
+            @endif
+
+
             @php
-            \App\Http\Controllers\UserQuestionarioController::updateRepetido($usuario->id_users)
+            //\App\Http\Controllers\UserQuestionarioController::updateRepetido($usuario->id_users)
             @endphp
 
-            <tr>
+
+            {{--<tr>
                 <td>{{ $usuario->id_users_questionarios }}</td>
                 <td>{{ $usuario->id_users }}</td>
                 <td>{{ $usuario->id_questionarios }}</td>
                 <td>{{ $usuario->created_at }}</td>
                 <td>{{ $usuario->updated_at }}</td>
-            </tr>
+            </tr>--}}
+
         @empty
             <tr><td colspan="7">Nenhum usuario cadastrado</td></tr>
         @endforelse
         </tbody>
     </table>
+
+    <h1>{{ $i }}</h1>
 
 @endsection
