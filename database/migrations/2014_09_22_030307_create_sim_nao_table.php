@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSistemasDeVagasTable extends Migration
+class CreateSimNaoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateSistemasDeVagasTable extends Migration
      */
     public function up()
     {
-        Schema::create('sistemas_de_vagas', function (Blueprint $table) {
+        Schema::create('sim_nao', function (Blueprint $table) {
             //chave primária incremento automático
-            $table->bigIncrements('id_sistemas_de_vagas')->index();
-            $table->string('nome', 150)->nullable();
-            //$table->string('descricao', 100)->nullable();
+            $table->bigIncrements('id_sim_nao')->index();
+            $table->string('nome', 5)->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateSistemasDeVagasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sistemas_de_vagas');
+        Schema::dropIfExists('sim_nao');
     }
 }

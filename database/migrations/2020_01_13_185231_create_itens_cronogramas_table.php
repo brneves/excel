@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGruposTable extends Migration
+class CreateItensCronogramasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateGruposTable extends Migration
      */
     public function up()
     {
-        Schema::create('grupos', function (Blueprint $table) {
-            $table->bigIncrements('id_grupos')->index();
-            $table->string('nome', 150)->nullable();
+        Schema::create('itens_cronogramas', function (Blueprint $table) {
+            //chave primária incremento automático
+            $table->bigIncrements('id_itens_cronogramas')->index();
+            $table->string('nome', 100)->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateGruposTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grupos');
+        Schema::dropIfExists('itens_cronogramas');
     }
 }

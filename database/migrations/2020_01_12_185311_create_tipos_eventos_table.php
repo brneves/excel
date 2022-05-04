@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMotivosIndeferimentosTable extends Migration
+class CreateTiposEventosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateMotivosIndeferimentosTable extends Migration
      */
     public function up()
     {
-        Schema::create('motivos_indeferimentos', function (Blueprint $table) {
+        Schema::create('tipos_eventos', function (Blueprint $table) {
             //chave primária incremento automático
-            $table->bigIncrements('id_motivos_indeferimentos')->index();
-
-            $table->longText('nome');
+            $table->bigIncrements('id_tipos_eventos')->index();
+            $table->string('nome', 100)->nullable();
             $table->timestamps();
+
         });
     }
 
@@ -29,6 +29,6 @@ class CreateMotivosIndeferimentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('motivos_indeferimentos');
+        Schema::dropIfExists('tipos_eventos');
     }
 }

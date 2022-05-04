@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTurnosTable extends Migration
+class CreateRemessasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateTurnosTable extends Migration
      */
     public function up()
     {
-        Schema::create('turnos', function (Blueprint $table) {
-            $table->bigIncrements('id_turnos')->index();
-            $table->string('nome', 60)->nullable();
+        Schema::create('remessas', function (Blueprint $table) {
+            $table->id('id_remessas');
+            $table->string('arquivo');
+            $table->dateTime('data');
+            $table->integer('qtd_registros');
+            $table->double('valor_total');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateTurnosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('turnos');
+        Schema::dropIfExists('remessas');
     }
 }
