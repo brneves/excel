@@ -21,7 +21,7 @@
     <br>
 
     @foreach($setores as $setor)
-        UPDATE setores SET nome = '{{ $setor->nome }}', endereco = '{{ $setor->endereco }}', numero = '{{ $setor->numero }}', bairro = '{{ $setor->bairro }}', cep = '{{ $setor->cep }}', qtd_salas = '{{ $setor->qtd_salas }}' where id_setores = {{ $setor->id_setores }};
+        UPDATE setores SET nome = '{{ $setor->nome }}', endereco = '{{ $setor->endereco }}', numero = '{{ $setor->numero }}', bairro = '{{ $setor->bairro }}', cep = '{{ $setor->cep }}', qtd_sala = '{{ $setor->qtd_salas }}' where id_setores = {{ $setor->id_setores }};
         <br>
 
     @endforeach
