@@ -14,7 +14,13 @@ class CreateSetorEventosTable extends Migration
     public function up()
     {
         Schema::create('setores_eventos', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_setores_eventos');
+            $table->integer('id_eventos');
+            $table->integer('id_setores');
+            $table->integer('id_tipos_distribuicoes');
+            $table->string('qtd_salas');
+            $table->integer('primeira_sala');
+            $table->string('codigo');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateSetorEventosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('setor_eventos');
+        Schema::dropIfExists('setores_eventos');
     }
 }
