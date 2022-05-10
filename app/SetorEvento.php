@@ -8,6 +8,8 @@ class SetorEvento extends Model
 {
     protected $table = 'setores_eventos';
 
+    protected $primaryKey = 'id_setores_eventos';
+
     protected $fillable = [
         'id_eventos',
         'id_setores',

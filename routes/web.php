@@ -49,4 +49,7 @@ Route::post('/musica', 'MusicaController@store')->name('musica.store');
 Route::get('/setores', 'SetorController@index')->name('setores');
 Route::post('/setores', 'SetorController@store')->name('setores.store');
 
+Route::get('/distribuicao', 'DistribuicaoController@index')->name('distribuicao');
+
+
 Auth::routes();

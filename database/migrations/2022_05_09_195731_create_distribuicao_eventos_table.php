@@ -14,7 +14,13 @@ class CreateDistribuicaoEventosTable extends Migration
     public function up()
     {
         Schema::create('distribuicao_eventos', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_distribuicao_eventos');
+            $table->integer('id_salas_setores');
+            $table->integer('id_tipos_distribuicao');
+            $table->integer('id_inscricoes');
+            $table->integer('id_local_prova');
+            $table->string('controle');
+            $table->string('sequencia_prova');
             $table->timestamps();
         });
     }

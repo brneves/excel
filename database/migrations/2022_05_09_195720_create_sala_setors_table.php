@@ -14,7 +14,10 @@ class CreateSalaSetorsTable extends Migration
     public function up()
     {
         Schema::create('salas_setores', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_salas_setores');
+            $table->integer('id_setores_eventos');
+            $table->string('sala');
+            $table->integer('qtd_candidatos');
             $table->timestamps();
         });
     }
