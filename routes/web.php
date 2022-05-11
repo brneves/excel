@@ -50,6 +50,7 @@ Route::get('/setores', 'SetorController@index')->name('setores');
 Route::post('/setores', 'SetorController@store')->name('setores.store');
 
 Route::get('/distribuicao', 'DistribuicaoController@index')->name('distribuicao');
+Route::get('distribuicao-up', 'DistribuicaoController@up')->name('distribuicao-up');
 
 
 Auth::routes();

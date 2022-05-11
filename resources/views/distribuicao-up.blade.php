@@ -19,57 +19,21 @@
     </form>
 
     <br>
-    @php
-        $i = 0;
-    @endphp
-
-    <!-- DISTRIBUICAO EVENTOS -->
-    <h2>DISTRIBUICAO EVENTOS</h2>
-
-
-    <hr>
-
-    <!-- SALAS SETORES -->
-    <h2>SALAS SETORES</h2>
-
-    @foreach($setoresEventos as $setor)
-        @dd($setor)
-    @endforeach
-
-    <hr>
-
-    <!-- SETORES EVENTOS -->
-    <h2>SETORES EVENTOS</h2>
-    @foreach($setores as $setor)
-
-        @php
-        $i++;
-        $primeiraSala = $setor->qtd_salas_utilizadas == 0 ? $setor->qtd_salas : ( $setor->qtd_salas != $setor->qtd_salas_utilizadas ? $setor->qtd_salas_utilizadas : 1 );
-        @endphp
-
-        INSERT INTO setores_eventos (id_setores_eventos,id_eventos, id_setores, id_tipos_distribuicoes, qtd_salas, primeira_sala, codigo) VALUES ({{ $i }}, 18, {{ $setor->id_setores }}, 1, '{{ $setor->qtd_salas }}', {{ $primeiraSala }}, '{{ $setor->codigo }}');
-
-        <br>
-
-    @endforeach
-
 
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>ID</th>
-            <th>COD_LOCAL</th>
-            <th>LOCAL</th>
-            <th>CODIGO</th>
-            <th>NOME_ESCOLA</th>
-            <th>ENDERECO</th>
-            <th>NUMERO</th>
-            <th>BAIRRO</th>
-            <th>CIDADE</th>
-            <th>UF</th>
-            <th>CEP</th>
-            <th>QTD_SALAS</th>
-            <th>QTD_SALAS_UTILIZADAS</th>
+            <th>ID EVENTOS</th>
+            <th>ID TIPOS DISTRIBUICOES</th>
+            <th>ID SETORES</th>
+            <th>CONTROLE</th>
+            <th>LOCAL PROVA</th>
+            <th>COLEGIO PROVA</th>
+            <th>SALA PROVA</th>
+            <th>SEQUENCIA PROVA</th>
+            <th>INSCRICAO</th>
+            <th>CPF</th>
+            <th>CURSO</th>
         </tr>
         </thead>
         <tbody>
