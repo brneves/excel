@@ -46,4 +46,11 @@ Route::post('/cfo-femi', 'CFOFemController@store')->name('cfo-femi.store');
 Route::get('/musica', 'MusicaController@index')->name('musica');
 Route::post('/musica', 'MusicaController@store')->name('musica.store');
 
+Route::get('/setores', 'SetorController@index')->name('setores');
+Route::post('/setores', 'SetorController@store')->name('setores.store');
+
+Route::get('/distribuicao', 'DistribuicaoController@index')->name('distribuicao');
+Route::get('distribuicao-up', 'DistribuicaoController@up')->name('distribuicao-up');
+
+
 Auth::routes();
