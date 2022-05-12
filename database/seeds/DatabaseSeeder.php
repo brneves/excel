@@ -8,7 +8,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // Popular as tabelas de trabalho
-        $this->call(DumpUsers1::class);              //a dump tem que ser chamada inicialmente para
+        //$this->call(DumpUsers1::class);              //a dump tem que ser chamada inicialmente para
                                                      //não ter problema com o id de UsersTableSeeder
         $this->call(UsersTableSeeder::class);
         $this->call(EstadosTableSeeder::class);
