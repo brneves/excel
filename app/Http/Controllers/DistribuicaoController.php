@@ -25,12 +25,14 @@ class DistribuicaoController extends Controller
 
     public function up()
     {
+        $setoresEventos = SetorEvento::all();
         $distribuicoes = Distribuicao::all();
-        return view('distribuicao-up', compact('distribuicoes'));
+        return view('distribuicao-up', compact('distribuicoes', 'setoresEventos'));
     }
 
     public function store(Request $request)
     {
+        ini_set('memory_limit', '-1');
         Excel::import(new DistribuicaoImport(), $request->file('arquivo'));
         return redirect()->route('distribuicao-up');
     }
