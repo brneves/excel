@@ -5,7 +5,7 @@
     {{ ini_set('memory_limit', '-1') }}
 
     <h3>Enviar arquivo</h3>
-    <form action="{{ route('setores.store') }}" enctype="multipart/form-data" method="post">
+    <form action="{{ route('distribuicao-up.store') }}" enctype="multipart/form-data" method="post">
         @csrf
         <div class="formg-group">
             <label for="arquivo">Arquivo</label>
@@ -20,42 +20,41 @@
 
     <br>
 
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th>ID EVENTOS</th>
-            <th>ID TIPOS DISTRIBUICOES</th>
-            <th>ID SETORES</th>
-            <th>CONTROLE</th>
-            <th>LOCAL PROVA</th>
-            <th>COLEGIO PROVA</th>
-            <th>SALA PROVA</th>
-            <th>SEQUENCIA PROVA</th>
-            <th>INSCRICAO</th>
-            <th>CPF</th>
-            <th>CURSO</th>
-        </tr>
-        </thead>
-        <tbody>
+    <!-- SALAS SETORES -->
 
-        {{--@foreach($setores as $setor)
-            <tr>
-                <td>{{ $setor->id_setores }}</td>
-                <td>{{ $setor->cod_local }}</td>
-                <td>{{ $setor->local }}</td>
-                <td>{{ $setor->codigo }}</td>
-                <td>{{ $setor->nome_escola }}</td>
-                <td>{{ $setor->endereco }}</td>
-                <td>{{ $setor->numero }}</td>
-                <td>{{ $setor->bairro }}</td>
-                <td>{{ $setor->cidade }}</td>
-                <td>{{ $setor->uf }}</td>
-                <td>{{ $setor->cep }}</td>
-                <td>{{ $setor->qtd_salas }}</td>
-                <td>{{ $setor->qtd_salas_utilizadas }}</td>
-            </tr>
-        @endforeach--}}
-        </tbody>
-    </table>
+    @foreach($setoresEventos as $setor)
+
+        @if($setor->qtd_salas_utilizadas != 0)
+            @for($i = 1; $i <= $setor->qtd_salas_utilizadas; $i++)
+                @if($i < 10)
+                    @php
+                    $i = '0' . $i;
+                    @endphp
+                @endif
+                INSERT INTO salas_setores(id_setores_eventos,sala,qtd_candidatos) VALUES ({{ $setor->id_setores_eventos }}, '{{ $i }}',30);<br>
+            @endfor
+        @endif
+
+        {{--
+        @if($setor->qtd_salas_utilizadas != 0)
+            @for($i = 1; $i <= $setor->qtd_salas; $i++)
+                {{ $setor->id_setores_eventos }} - {{ $i }}<br>
+            @endfor
+        @elseif($setor->qtd_salas_utilizadas > 0 && $setor->qtd_salas_utilizadas < $setor->qtd_salas)
+            @for($i = 1; $i <= $setor->qtd_salas - $setor->qtd_salas_utilizadas; $i++)
+                {{ $setor->id_setores_eventos }} - {{ $i }}<br>
+            @endfor
+        @endif
+        --}}
+
+        {{--INSERT INTO salas_setores(id_setores_eventos,sala,qtd_candidatos) VALUES ({{ $setor->id_setores_eventos }}, {{ $dist->sala_prova }});<br>--}}
+
+    @endforeach
+
+
+
+    @foreach($setoresEventos as $setor)
+
+    @endforeach
 
 @endsection

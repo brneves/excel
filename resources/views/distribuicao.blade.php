@@ -32,10 +32,6 @@
     <!-- SALAS SETORES -->
     <h2>SALAS SETORES</h2>
 
-    @foreach($setoresEventos as $setor)
-        @dd($setor)
-    @endforeach
-
     <hr>
 
     <!-- SETORES EVENTOS -->
@@ -44,10 +40,9 @@
 
         @php
         $i++;
-        $primeiraSala = $setor->qtd_salas_utilizadas == 0 ? $setor->qtd_salas : ( $setor->qtd_salas != $setor->qtd_salas_utilizadas ? $setor->qtd_salas_utilizadas : 1 );
         @endphp
 
-        INSERT INTO setores_eventos (id_setores_eventos,id_eventos, id_setores, id_tipos_distribuicoes, qtd_salas, primeira_sala, codigo) VALUES ({{ $i }}, 18, {{ $setor->id_setores }}, 1, '{{ $setor->qtd_salas }}', {{ $primeiraSala }}, '{{ $setor->codigo }}');
+        INSERT INTO setores_eventos (id_setores_eventos,id_eventos, id_setores, id_tipos_distribuicoes, qtd_salas, qtd_salas_utilizadas, codigo) VALUES ({{ $i }}, 18, {{ $setor->id_setores }}, 1, '{{ $setor->qtd_salas }}', {{ $setor->qtd_salas_utilizadas }}, '{{ $setor->codigo }}');
 
         <br>
 
