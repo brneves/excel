@@ -2,7 +2,7 @@
 
 @section('conteudo')
 
-    {{ ini_set('memory_limit', '-1') }}
+    @php ini_set('memory_limit', '-1') @endphp
 
     <br>
 
