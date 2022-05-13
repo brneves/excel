@@ -37,4 +37,12 @@ class DistribuicaoController extends Controller
         return redirect()->route('distribuicao-up');
     }
 
+    public function distribuicaoEventos()
+    {
+        $setoresEventos = SetorEvento::all();
+        $distribuicoes = Distribuicao::all();
+        $salasSetores = SalaSetor::all();
+        return view('distribuicao-eventos', compact('distribuicoes', 'distribuicoes', 'salasSetores'));
+    }
+
 }
