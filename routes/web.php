@@ -54,4 +54,7 @@ Route::get('distribuicao-up', 'DistribuicaoController@up')->name('distribuicao-u
 Route::post('distribuicao-up', 'DistribuicaoController@store')->name('distribuicao-up.store');
 Route::get('distribuicao-eventos', 'DistribuicaoController@distribuicaoEventos')->name('distribuicao-eventos');
 
+Route::get('/local-musica', 'LocalMusicaController@index')->name('local-musica');
+Route::post('/local-musica', 'LocalMusicaController@store')->name('local-musica.store');
+
 Auth::routes();
